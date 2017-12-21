@@ -101,6 +101,7 @@
     <Content Include="js\Box2DPlayer.js" />
     <Content Include="js\Box2DRain.js" />
     <Content Include="js\Box2DSides.js" />
+    <Content Include="js\default.js" />
     <Content Include="js\main.js" />
     <Content Include="css\default.css" />
     <Content Include="level1\images\end.jpg" />

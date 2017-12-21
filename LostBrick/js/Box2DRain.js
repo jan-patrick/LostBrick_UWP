@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by Roman Kuhn, Marcus Schoch, Jan Schneider on 3/10/17.
  */
 
