@@ -57,6 +57,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <AppxPackageDir>C:\Users\jansc\OneDrive\_InternetofThings\HochschulefürGestaltung\Semester2\Franklin\LostBrick\LostBrick_UWP\LostBrick\AppPackages2\</AppxPackageDir>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">

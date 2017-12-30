@@ -164,6 +164,13 @@ var introStarted = false;
 var myRain = [];
 var itisraining = false;
 
+// for zoom
+var zoom = 100;
+
+// for control in menu
+var showControl = true;
+var controlopacity = 0.5;
+
 function onReady() {
     // your inicialization code here  ----------------------------------------------
     canvas = document.getElementById('canvas');
@@ -330,7 +337,6 @@ function onReady() {
         };
         world.SetContactListener(listener);
     }
-
     draw();
     console.log("Go Brick, go!");
 } // end onReady()
@@ -415,19 +421,22 @@ function draw() {
             }
         }
     }
-
     if (gamemode == "menu") {
         if (menutextchange == 0) {
             menuopacityleft += 0.005;
+            controlopacity += 0.002;
             if (menuopacityleft >= 0.9) menutextchange = 1;
         } else if (menutextchange == 1) {
             menuopacityleft -= 0.005;
+            controlopacity -= 0.002;
             if (menuopacityleft <= 0.005) menutextchange = 2;
         } else if (menutextchange == 2) {
             menuopacityright += 0.005;
+            controlopacity += 0.002;
             if (menuopacityright >= 0.9) menutextchange = 3;
         } else if (menutextchange == 3) {
             menuopacityright -= 0.005;
+            controlopacity -= 0.002;
             if (menuopacityright <= 0.005) menutextchange = 0;
         }
         img = new Image();
@@ -441,7 +450,13 @@ function draw() {
             ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityright + ")";
             ctx.fillText("press right for level two", 205, 800);
         }
-
+        // printing MENU in canvas
+        if (showControl) {
+            ctx.fillStyle = "rgba(255, 255, 255, " + controlopacity + ")";
+            ctx.fillText("i/o: zoom", 205, 190);
+            ctx.fillText("<^>: move", 205, 240);
+            ctx.fillText("esc: restart", 205, 290);
+        }
     } else if (gamemode == "intro") {
         if (!introStarted) {
             if (level == 1) {
@@ -871,8 +886,6 @@ function draw() {
     requestAnimFrame(draw);
 }
 
-
-
 // for events  ---------------------------------------------------
 function pick(event) {
     mouseX = event.layerX;
@@ -886,6 +899,9 @@ function keyInput(e) {
     if (gamemode == "menu") {
         if (presentationmode) { // if makey makey is used
             switch (e.keyCode) {
+                case 27: // esc
+                    window.location.reload();
+                    break;
                 case 40: // left arrow
                     level = 3;
                     gamemode = "intro";
@@ -898,12 +914,34 @@ function keyInput(e) {
                     level = 2;
                     gamemode = "intro";
                     break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if (zoom <= 20) zoom = 20;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed out");
+                    break;
+                case 77: // m
+                    showControl = false;
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if (zoom >= 200) zoom = 200;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed in");
+                    break;
                 default:
                     //console.log(e);
                     break;
             }
         } else {
             switch (e.keyCode) {
+                case 27: // esc
+                    window.location.reload();
+                    break;
                 case 37: // left arrow
                     level = 3;
                     gamemode = "intro";
@@ -915,6 +953,25 @@ function keyInput(e) {
                 case 39: // right arrow
                     level = 2;
                     gamemode = "intro";
+                    break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if (zoom <= 20) zoom = 20;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed out");
+                    break;
+                case 77: // m
+                    showControl = false;
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if (zoom >= 200) zoom = 200;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed in");
                     break;
                 default: // if any key pressed start intro video
                     //console.log(e);
@@ -940,6 +997,22 @@ function keyInput(e) {
                 case 27: // esc
                     window.location.reload();
                     break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if (zoom <= 20) zoom = 20;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed out");
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if (zoom >= 200) zoom = 200;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed in");
+                    break;
                 default:
                     sideNum = sideNum;
                     buttonPressed = true;
@@ -962,6 +1035,22 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
+                    break;
+                case 73: // i
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom += 10;
+                    if (zoom <= 20) zoom = 20;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed out");
+                    break;
+                case 79: // o
+                    //console.log(parseInt(document.body.style.zoom));
+                    zoom -= 10;
+                    if (zoom >= 200) zoom = 200;
+                    var n = "" + zoom;
+                    document.body.style.zoom = n += "%";
+                    //console.log("Zoomed in");
                     break;
                 default:
                     sideNum = sideNum;

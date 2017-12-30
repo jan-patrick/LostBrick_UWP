@@ -17,6 +17,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
     line-height: 1;
+    zoom: 100%;
 }
 
 ol, ul {
@@ -42,6 +43,10 @@ canvas {
     padding-right: 0;
     margin: auto;
     display: block;
+    -webkit-align-self: center; /* Safari 7.0+ */
+    -moz-align-self: center;
+    -ms-align-self: center;
+    align-self: center;
 }
 
 @font-face {
