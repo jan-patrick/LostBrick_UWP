@@ -169,7 +169,7 @@ var zoom = 100;
 
 // for control in menu
 var showControl = true;
-var controlopacity = 0.5;
+var controlopacity = 0.3;
 
 function onReady() {
     // your inicialization code here  ----------------------------------------------
@@ -456,6 +456,7 @@ function draw() {
             ctx.fillStyle = "rgba(255, 255, 255, " + controlopacity + ")";
             ctx.fillText("move: <^>", 920, 800);
             ctx.fillText("restart: esc", 920, 850);
+            //ctx.fillText("fullscreen: f", 920, 900);
         }
     } else if (gamemode == "intro") {
         if (!introStarted) {
@@ -921,6 +922,9 @@ function keyInput(e) {
                     level = 2;
                     gamemode = "intro";
                     break;
+                case 70: // f
+                    fullscreen();
+                    break;
                 case 77: // m
                     showControl = false;
                     break;
@@ -944,6 +948,9 @@ function keyInput(e) {
                 case 39: // right arrow
                     level = 2;
                     gamemode = "intro";
+                    break;
+                case 70: // f
+                    fullscreen();
                     break;
                 case 77: // m
                     showControl = false;
@@ -972,6 +979,9 @@ function keyInput(e) {
                 case 27: // esc
                     window.location.reload();
                     break;
+                case 70: // f
+                    fullscreen();
+                    break;
                 default:
                     sideNum = sideNum;
                     buttonPressed = true;
@@ -994,6 +1004,9 @@ function keyInput(e) {
                     break;
                 case 27: // esc
                     window.location.reload();
+                    break;
+                case 70: // f
+                    fullscreen();
                     break;
                 default:
                     sideNum = sideNum;

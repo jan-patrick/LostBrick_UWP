@@ -8,7 +8,8 @@
 }
 
 html {
-    background: #5f5d5d;
+    /*#5f5d5d for near canvas background color*/
+    background: #000000;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
