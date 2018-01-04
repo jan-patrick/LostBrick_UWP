@@ -74,6 +74,10 @@
     <Content Include="images\SmallTile.scale-150.png" />
     <Content Include="images\SmallTile.scale-200.png" />
     <Content Include="images\SmallTile.scale-400.png" />
+    <Content Include="images\splashscreen.scale-100.png" />
+    <Content Include="images\splashscreen.scale-125.png" />
+    <Content Include="images\splashscreen.scale-150.png" />
+    <Content Include="images\splashscreen.scale-400.png" />
     <Content Include="images\Square310x310Logo.scale-100.png" />
     <Content Include="images\Square310x310Logo.scale-125.png" />
     <Content Include="images\Square310x310Logo.scale-150.png" />
