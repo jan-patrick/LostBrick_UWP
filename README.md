@@ -5,6 +5,6 @@
   <br><br><br>
   LostBrick UWP is a version of LostBrick for the Universal Windows Platform, Windows 10.<br><br>
   For general information about LostBrick:<br>
-  <a href="https://github.com/jan-patrick/LostBrick#deutsch">Deutsch</a> | <a href="https://github.com/jan-patrick/LostBrick#english">Englisch</a><br><br>
+  <a href="https://github.com/jan-patrick/LostBrick#deutsch">Deutsch</a> | <a href="https://github.com/jan-patrick/LostBrick#english">English</a><br><br>
   <a href="https://github.com/JanPSchneider/LostBrick/archive/master.zip">Download basic version of LostBrick for Browser (every OS)</a><br><br><br>
 </p>
