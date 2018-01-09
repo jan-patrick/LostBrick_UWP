@@ -443,7 +443,7 @@ function draw() {
         img = new Image();
         img.src = "mainimages/menu.jpg";
         ctx.drawImage(img, 0, 0);
-        ctx.font = "normal 41px Roboto";
+        ctx.font = "normal 41px Arial";
         if (menutextchange <= 1) {
             ctx.fillStyle = "rgba(255, 255, 255, " + menuopacityleft + ")";
             ctx.fillText("press left for level one", 205, 800);
@@ -472,7 +472,7 @@ function draw() {
         if (level == 1) {
             videointroeasy.play();
             ctx.drawImage(videointroeasy, 0, 0);
-            ctx.font = "normal 11px Roboto";
+            ctx.font = "normal 11px Arial";
             ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
             ctx.fillText("alpha level", 10, canvas.height - 10);
         } else if (level == 2) {
@@ -516,7 +516,7 @@ function draw() {
         }
         Box2DRain();
         if (level == 1) {
-            ctx.font = "normal 11px Roboto";
+            ctx.font = "normal 11px Arial";
             ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
             ctx.fillText("alpha level", 10, canvas.height - 10);
         }
@@ -718,8 +718,8 @@ function draw() {
         resultTime = seconds - playedSeconds;
 
         // printing text in canvas
-        ctx.fillStyle = "#bbbbbb";
-        ctx.font = "normal 11px Roboto";
+        //ctx.fillStyle = "#bbbbbb";
+        //ctx.font = "normal 11px Arial";
 
         //ctx.fillText("Raindrops: "+ myRain.length, 10, canvas.height-165);
         //ctx.fillText("countFrame: "+ countFrame, 10, canvas.height-145);
@@ -742,14 +742,14 @@ function draw() {
             img.src = "level1/images/end.jpg";
             ctx.drawImage(img, 0, 0);
 
-            ctx.font = "normal 11px Roboto";
+            ctx.font = "normal 11px Arial";
             ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
             ctx.fillText("alpha level", 10, canvas.height - 10);
 
             Box2DPlayer(sideNum);
 
             ctx.fillStyle = "#ffffff";
-            ctx.font = "normal 41px Roboto";
+            ctx.font = "normal 41px Arial";
             ctx.fillText("time: " + Math.round(resultTime) + " seconds", 200, canvas.height / 2);
             ctx.fillText("lifes: " + playerCounter, 200, canvas.height / 2 + 60);
 
@@ -777,7 +777,7 @@ function draw() {
                     if (endopacityright <= 0.005) endtextchange = 0;
                 }
 
-                ctx.font = "normal 41px Roboto";
+                ctx.font = "normal 41px Arial";
                 if (endtextchange <= 1) {
                     ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
                     if (resultTime <= 99) {
@@ -834,7 +834,7 @@ function draw() {
                     if (endopacityright <= 0.005) endtextchange = 0;
                 }
 
-                ctx.font = "normal 41px Roboto";
+                ctx.font = "normal 41px Arial";
                 if (endtextchange <= 1) {
                     ctx.fillStyle = "rgba(0, 0, 0, " + endopacityleft + ")";
                     if (resultTime <= 99) {
