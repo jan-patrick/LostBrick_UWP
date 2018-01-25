@@ -9,17 +9,14 @@ var level = 0; // 1 = first test (alpha); 2 = first good level; 3 = second good 
 var gamemode = "menu";
 var sideNum = 1;
 
-/** 
- * presentation mode 
- * (for different input from makey makey than from keyboard
- * and alpha level, in code level 1, is not playable, else by pressing arrow up)
- */
-var presentationmode = false;
+var titleBar = Windows.UI.ViewManagement.ApplicationView.getForCurrentView().titleBar;
 
-// if muted (true) music does not play
-// it also saves some power not playing music 
-// but for better experience we recommend to play with music
-var mute = false;
+titleBar.backgroundColor = { a: 1, r: 111, g: 111, b: 111 };
+titleBar.foregroundColor = { a: 1, r: 255, g: 255, b: 255 };
+titleBar.buttonBackgroundColor = { a: 1, r: 111, g: 111, b: 111 };
+titleBar.buttonForegroundColor = { a: 1, r: 255, g: 255, b: 255 };
+titleBar.inactiveBackgroundColor = { a: 1, r: 111, g: 111, b: 111 };
+titleBar.inactiveForegroundColor = { a: 1, r: 255, g: 255, b: 255 };
 
 // test mode
 var godmode = false;
@@ -385,8 +382,8 @@ function draw() {
             started = true;
         }
         // if not muted music is playing while the game is open    
-    } if (!mute) {
-        // music control center
+    }
+    // music control center
         // choose randomly the first playing title (number one or two)
         if (musicplaying == 0) {
             if (Math.random() <= 0.5) {
@@ -421,7 +418,6 @@ function draw() {
                 backgroundmusictwo.load();
             }
         }
-    }
     if (gamemode == "menu") {
         if (menutextchange == 0) {
             menuopacityleft += 0.005;
@@ -905,34 +901,6 @@ function pick(event) {
 function keyInput(e) {
     e = e || window.event;
     if (gamemode == "menu") {
-        if (presentationmode) { // if makey makey is used
-            switch (e.keyCode) {
-                case 27: // esc
-                    window.location.reload();
-                    break;
-                case 40: // left arrow
-                    level = 3;
-                    gamemode = "intro";
-                    break;
-                //case 37: // arrow up
-                //    level = 1;
-                //    gamemode="intro";
-                //    break;
-                case 38: // right arrow
-                    level = 2;
-                    gamemode = "intro";
-                    break;
-                case 70: // f
-                    fullscreen();
-                    break;
-                case 77: // m
-                    showControl = false;
-                    break;
-                default:
-                    //console.log(e);
-                    break;
-            }
-        } else {
             switch (e.keyCode) {
                 case 27: // esc
                     window.location.reload();
@@ -966,41 +934,59 @@ function keyInput(e) {
                 case 87: // w
                     level = 1;
                     gamemode = "intro";
-                    break; 
+                    break;            
+                case 196: // B Button
+                    level = 2;
+                    gamemode = "intro";
+                    break;
+                case 197: // X Button
+                    level = 3;
+                    gamemode = "intro";
+                    break;
+                case 198: // Y Button
+                    level = 1;
+                    gamemode = "intro";
+                    break;
+                case 199: // Right Bumper
+                    level = 2;
+                    gamemode = "intro";
+                    break;
+                case 200: // Left Bumper
+                    level = 3;
+                    gamemode = "intro";
+                    break;
+                case 201: // Left Trigger
+                    level = 3;
+                    gamemode = "intro";
+                    break;
+                case 202: // Right Trigger
+                    level = 2;
+                    gamemode = "intro";
+                    break;
+                case 211:  // GamepadLeftThumbstickUp
+                case 215:  // GamepadRightThumbstickUp
+                case 203:  // GamepadDPadUp
+                    level = 1;
+                    gamemode = "intro";
+                    break;
+                case 214:  // GamepadLeftThumbstickLeft
+                case 218:  // GamepadRightThumbstickLeft
+                case 205:  // GamepadDPadLeft
+                    level = 3;
+                    gamemode = "intro";
+                    break;
+                case 213:  // GamepadLeftThumbstickRight
+                case 217:  // GamepadRightThumbstickRight
+                case 206:  // GamepadDPadRight
+                    level = 2;
+                    gamemode = "intro";
+                    break;
                 default: // if any key pressed start intro video
                     //console.log(e);
                     break;
             }
-        }
     } else if (gamemode == "play" && videoPlayed == true) {
         buttonPressed = true;
-        if (presentationmode) {
-            switch (e.keyCode) {
-                case 37: // left arrow
-                    playDir = "w";
-                    break;
-                case 38: // arrow up
-                    playDir = "d";
-                    break;
-                case 39: // right arrow
-                    playDir = "s";
-                    break;
-                case 40: // arrow down
-                    playDir = "a";
-                    break;
-                case 27: // esc
-                    window.location.reload();
-                    break;
-                case 70: // f
-                    fullscreen();
-                    break;
-                default:
-                    sideNum = sideNum;
-                    buttonPressed = true;
-                    //console.log(e);
-                    break;
-            }
-        } else {
             switch (e.keyCode) {
                 case 37: // left arrow
                     playDir = "a";
@@ -1032,13 +1018,50 @@ function keyInput(e) {
                 case 87: // w
                     playDir = "w";
                     break;
+                case 195:  // A Button
+                    playDir = "s";
+                    break;
+                case 196: // B Button
+                    playDir = "d";
+                    break;
+                case 197: // X Button
+                    playDir = "a";
+                    break;
+                case 198: // Y Button
+                    playDir = "w";
+                    break;
+                case 207: // Menu button
+                    window.location.reload();
+                    break;
+                case 208: // View button
+                    window.location.reload();
+                    break;
+                case 211:  // GamepadLeftThumbstickUp
+                case 215:  // GamepadRightThumbstickUp
+                case 203:  // GamepadDPadUp
+                    playDir = "w";
+                    break;
+                case 212:  // GamepadLeftThumbstickDown
+                case 216:  // GamepadRightThumbstickDown
+                case 204:  // GamepadDPadDown
+                    playDir = "s";
+                    break;
+                case 214:  // GamepadLeftThumbstickLeft
+                case 218:  // GamepadRightThumbstickLeft
+                case 205:  // GamepadDPadLeft
+                    playDir = "a";
+                    break;
+                case 213:  // GamepadLeftThumbstickRight
+                case 217:  // GamepadRightThumbstickRight
+                case 206:  // GamepadDPadRight
+                    playDir = "d";
+                    break;
                 default:
                     sideNum = sideNum;
                     buttonPressed = true;
                     //console.log(e);
                     break;
             }
-        }
     } else if (gamemode == "end" && endTime <= seconds) {
         switch (e.keyCode) {
             default: // if any key pressed go to menu by reloading and refreshing the complete game / document
