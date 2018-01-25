@@ -452,7 +452,7 @@ function draw() {
             ctx.fillStyle = "rgba(255, 255, 255, " + controlopacity + ")";
             ctx.fillText("move: <^>", 920, 800);
             ctx.fillText("restart: esc", 920, 850);
-            //ctx.fillText("fullscreen: f", 920, 900);
+        //    ctx.fillText("fullscreen: f", 920, 900);
         }
     } else if (gamemode == "intro") {
         if (!introStarted) {
