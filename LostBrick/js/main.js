@@ -926,6 +926,7 @@ function keyInput(e) {
                     gamemode = "intro";
                     break;
                 case 70: // f
+                case 86: // v
                     fullscreen();
                     break;
                 case 77: // m
@@ -1010,6 +1011,7 @@ function keyInput(e) {
                     playDir = "d";
                     break;
                 case 70: // f
+                case 86: // v
                     fullscreen();
                     break;            
                 case 83: // s
